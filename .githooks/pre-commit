@@ -31,6 +31,8 @@ CSS_STAGED=$(grep .css$ <<< "$STAGED" || true)
 CSS_FULLY_STAGED=$(grep .css$ <<< "$FULLY_STAGED" || true)
 MD_STAGED=$(grep .md$ <<< "$STAGED" || true)
 MD_FULLY_STAGED=$(grep .md$ <<< "$FULLY_STAGED" || true)
+JSON_STAGED=$(grep .json$ <<< "$STAGED" || true)
+JSON_FULLY_STAGED=$(grep .json$ <<< "$FULLY_STAGED" || true)
 SNAPSHOT_STAGED=$(grep .snap$ <<< "$STAGED" || true)
 
 
@@ -61,6 +63,17 @@ fi
 if [ -n "$MD_STAGED" ];
 then
     npm run linter:md -s -- $MD_STAGED
+fi
+
+if [ -n "$JSON_FULLY_STAGED" ];
+then
+    npm run formatter -s -- $JSON_FULLY_STAGED
+    git add $JSON_FULLY_STAGED
+fi
+
+if [ -n "$JSON_STAGED" ];
+then
+    npm run linter:json -s -- $JSON_STAGED
 fi
 
 if [ -n "$JS_STAGED" ] || [ -n "$SNAPSHOT_STAGED" ];

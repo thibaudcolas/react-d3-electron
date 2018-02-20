@@ -1,0 +1,38 @@
+.btn {
+  display: inline-block;
+  padding-top: 0;
+  padding-right: 1em;
+  padding-bottom: 0;
+  padding-left: 1em;
+  margin: inherit 0 0;
+  font-family: inherit;
+  line-height: 2.5;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.25em;
+  user-select: none;
+}
+
+.btn,
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn:active,
+.btn:focus {
+  outline: solid 3px #6cc6ee;
+}
+
+.btn--disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.btn--block {
+  width: 100%;
+  margin-top: 1rem;
+}

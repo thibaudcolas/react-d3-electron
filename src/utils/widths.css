@@ -1,0 +1,42 @@
+.one-tenth {
+  width: 10%;
+}
+.one-quarter {
+  width: 25%;
+}
+.one-fifth {
+  width: 20%;
+}
+.one-third {
+  width: 33.333333333%;
+}
+.three-tenths {
+  width: 30%;
+}
+.two-fifths {
+  width: 40%;
+}
+.one-half {
+  width: 50%;
+}
+.three-fifths {
+  width: 60%;
+}
+.two-thirds {
+  width: 66.666666666%;
+}
+.seven-tenths {
+  width: 70%;
+}
+.three-quarters {
+  width: 75%;
+}
+.four-fifths {
+  width: 80%;
+}
+.nine-tenths {
+  width: 90%;
+}
+.full {
+  width: 100%;
+}

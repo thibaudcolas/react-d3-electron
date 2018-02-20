@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { humanNumber, padNumber, monthName } from '../utils/format';
 
 describe('format', () => {
@@ -13,7 +12,7 @@ describe('format', () => {
             expect(humanNumber(5000000)).to.equal('5,000,000');
             expect(humanNumber(-5000)).to.equal('-5,000');
             expect(humanNumber(-5000000)).to.equal('-5,000,000');
-            expect(humanNumber(5000.5000)).to.equal('5,000.5');
+            expect(humanNumber(5000.5)).to.equal('5,000.5');
             expect(humanNumber(0.3333333)).to.equal('0.3333333');
         });
     });

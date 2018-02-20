@@ -29,14 +29,14 @@
     "electron": "^1.8.2",
     "electron-debug": "^1.5.0",
     "electron-packager": "^11.0.1",
+    "flow-bin": "^0.66.0",
+    "prettier": "^1.10.2",
     "react-scripts": "1.1.1"
   },
   "dependencies": {
     "d3": "^3.5.0",
-    "flow-bin": "^0.66.0",
     "lunr": "^0.6.0",
     "normalize.css": "^8.0.0",
-    "prettier": "^1.10.2",
     "react": "^16.2.0",
     "react-autosuggest": "^9.3.4",
     "react-dom": "^16.2.0",
@@ -44,19 +44,23 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && source-map-explorer --html build/static/js/main.* > public/source-map-explorer.html",
+    "build":
+      "react-scripts build && source-map-explorer --html build/static/js/main.* > public/source-map-explorer.html",
     "test": "yarn run test:coverage -s",
     "test:coverage": "react-scripts test --env=jsdom --coverage",
     "test:watch": "react-scripts test --env=jsdom",
     "linter:css": "prettier --list-different",
     "linter:md": "prettier --list-different",
+    "linter:json": "prettier --list-different",
     "dist": "CI=true yarn run build -s",
     "flow": "flow",
     "report:coverage": "open coverage/lcov-report/index.html",
     "report:build": "open public/source-map-explorer.html",
     "formatter": "prettier --write",
-    "lint": "yarn run linter:css -s -- src/**/*.css && yarn run linter:md -s -- '**/*.md'",
+    "lint":
+      "yarn run linter:css -s -- src/**/*.css && yarn run linter:md -s -- '**/*.md'",
     "format": "yarn run formatter -s -- '**/*.md' src/**/*.js src/**/*.css",
-    "test:ci": "yarn run lint -s && yarn run flow -s && yarn run dist -s && yarn run test:coverage -s -- --outputFile build/test-results.json --json"
+    "test:ci":
+      "yarn run lint -s && yarn run flow -s && yarn run dist -s && yarn run test:coverage -s -- --outputFile build/test-results.json --json"
   }
 }

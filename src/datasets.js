@@ -1,5 +1,12 @@
-import lunr from 'lunr';
+import lunr from "lunr";
 
+export type Dataset = {
+  id: string,
+  label: string,
+  data: Array<number>,
+};
+
+// prettier-ignore
 const datasets = {
     1: { id: '1', label: `Monthly Airline Passenger Numbers 1949-1960`, data: [ 108, 89, 86, 56, 114, 60, 8, 121, 50, 131, 65, 91, 66, 83, 117, 1 ] },
     2: { id: '2', label: `Sales Data with Leading Indicator`, data: [ 59, 84, 31, 64, 68, 127, 121, 52, 105, 103, 60, 7, 106, 68, 75, 2 ] },
@@ -124,15 +131,14 @@ const datasets = {
     757: { id: '757', label: `Reaction times in a sleep deprivation study`, data: [ 19, 9, 46, 132, 80, 63, 100, 67, 128, 29, 112, 70, 19, 9, 46, 132 ] },
 };
 
-export const data = Object.keys(datasets).map(id => datasets[id]);
+export const data = Object.keys(datasets).map((id) => datasets[id]);
 
 export const related = data.slice(-5);
 
-export const idx = lunr(function () {
-    this.field('label');
+export const idx = lunr(function() {
+  this.field("label");
 });
 
-
-data.forEach(d => idx.add(d));
+data.forEach((d) => idx.add(d));
 
 export default datasets;
