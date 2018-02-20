@@ -1,11 +1,10 @@
-[react-search-example](https://springload.github.io/react-search-example/)
-=============
+# [react-d3-electron](https://thibaudcolas.github.io/react-d3-electron/)
 
-> :chart_with_downwards_trend::chart_with_upwards_trend: An example of using React with D3, Lunr.js and an autocomplete UI to build an accessible keyboard-centric search experience. Also – service workers for offline caching, and desktop app with Electron. [Demo](https://springload.github.io/react-search-example/)
+> :chart_with_downwards_trend::chart_with_upwards_trend: An example of using React with D3, Lunr.js and an autocomplete UI to build an accessible keyboard-centric search experience. Also – service workers for offline caching, and desktop app with Electron. [Demo](https://thibaudcolas.github.io/react-d3-electron/)
 
-[![Screenshot](screenshot.png)](https://springload.github.io/react-search-example/)
+[![Screenshot](screenshot.png)](https://thibaudcolas.github.io/react-d3-electron/)
 
-Head over to the [Releases](https://github.com/springload/react-search-example/releases/tag/v0.1.0) to download the desktop version.
+Head over to the [Releases](https://github.com/thibaudcolas/react-d3-electron/releases) to download the desktop version.
 
 ## Installation
 
@@ -15,7 +14,7 @@ From the command-line:
 
 ```sh
 cd ~/Development/sites/
-git clone git@github.com:springload/react-search-example.git
+git clone git@github.com:thibaudcolas/react-d3-electron.git
 cd react-example
 ```
 
@@ -49,31 +48,9 @@ npm run lint
 npm run test
 ```
 
-## Deploying a new version
-
-### To production (`gh-pages`)
-
-```sh
-# From the project's root.
-# First make sure your master is up to date.
-git fetch --all
-git checkout master
-git pull
-git push origin master
-# Then push the new changes
-git checkout gh-pages
-git merge master
-npm run dist
-git add .
-git commit -m 'Release new version'
-git push origin gh-pages
-# And get back to master!
-git checkout master
-```
-
 ## Documentation
 
-- Datasets taken from https://github.com/vincentarelbundock/Rdatasets.
-- Icon made with 📈 and 📉 from http://emojione.com/.
+* Datasets taken from https://github.com/vincentarelbundock/Rdatasets.
+* Icon made with 📈 and 📉 from http://emojione.com/.
 
 This project relies on a modified version of `react-autosuggest` so that the suggestions are always displayed.
