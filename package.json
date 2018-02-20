@@ -45,7 +45,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && source-map-explorer --html build/static/js/main.* > public/source-map-explorer.html",
+    "build":
+      "react-scripts build && source-map-explorer --html build/static/js/main.* > public/source-map-explorer.html",
     "test": "yarn run test:coverage",
     "test:coverage": "react-scripts test --env=jsdom --coverage",
     "test:watch": "react-scripts test --env=jsdom",
@@ -57,8 +58,10 @@
     "report:coverage": "open coverage/lcov-report/index.html",
     "report:build": "open public/source-map-explorer.html",
     "formatter": "prettier --write",
-    "lint": "yarn run linter:css -- src/**/*.css && yarn run linter:md -- '**/*.md'",
+    "lint":
+      "yarn run linter:css -- src/**/*.css && yarn run linter:md -- '**/*.md'",
     "format": "yarn run formatter -- '**/*.md' src/**/*.js src/**/*.css",
-    "test:ci": "yarn run lint && yarn run flow && yarn run dist && yarn run test:coverage -- --outputFile build/test-results.json --json"
+    "test:ci":
+      "yarn run lint && yarn run flow && yarn run dist && yarn run test:coverage -- --outputFile build/test-results.json --json"
   }
 }
