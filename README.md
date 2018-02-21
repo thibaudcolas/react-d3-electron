@@ -1,4 +1,4 @@
-# [react-d3-electron](https://thibaudcolas.github.io/react-d3-electron/)
+# [react-d3-electron](https://thibaudcolas.github.io/react-d3-electron/) [![Build Status](https://img.shields.io/travis/thibaudcolas/react-d3-electron.svg)](https://travis-ci.org/thibaudcolas/react-d3-electron)
 
 > :chart_with_downwards_trend::chart_with_upwards_trend: An example of using React with D3, Lunr.js and an autocomplete UI to build an accessible keyboard-centric search experience. Also – service workers for offline caching, and desktop app with Electron. [Demo](https://thibaudcolas.github.io/react-d3-electron/)
 
@@ -15,17 +15,16 @@ From the command-line:
 ```sh
 cd ~/Development/sites/
 git clone git@github.com:thibaudcolas/react-d3-electron.git
-cd react-example
+cd react-d3-electron
 ```
 
 To install our dependencies:
 
 ```sh
 nvm install
-npm install --global eslint eslint-plugin-react babel-eslint eslint-config-airbnb sass-lint
 # Then, install all project dependencies.
-npm install
-# Optionally, install the git hooks.
+yarn install
+# Install the git hooks.
 ./.githooks/deploy
 ```
 
@@ -35,22 +34,14 @@ npm install
 
 ```sh
 # Start the server and the development tools.
-npm run start
-# Run the project within Electron
-npm run start:electron
-# Builds frontend assets.
-npm run build
-# Packages binaries with Electron
-npm run build:electron
-# Runs linting.
-npm run lint
+yarn run start
 # Runs tests.
-npm run test
+yarn run test
 ```
 
 ## Documentation
 
-* Datasets taken from https://github.com/vincentarelbundock/Rdatasets.
-* Icon made with 📈 and 📉 from http://emojione.com/.
+* Datasets taken from [https://github.com/vincentarelbundock/Rdatasets](https://github.com/vincentarelbundock/Rdatasets).
+* Icon made with 📈 and 📉 from [Emoji One](http://emojione.com/).
 
 This project relies on a modified version of `react-autosuggest` so that the suggestions are always displayed.
