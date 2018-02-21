@@ -6,10 +6,7 @@ import Modal from "../components/Modal";
 type Props = {
   id: string,
   label: string,
-  iconName: string,
-  modalTitle: string,
   children: any,
-  isOpen: boolean,
 };
 
 type State = {
@@ -24,33 +21,24 @@ class ModalTrigger extends Component<Props, State> {
     super(props);
 
     this.state = {
-      isOpen: props.isOpen,
+      isOpen: false,
     };
 
     (this: any).onToggleModal = this.onToggleModal.bind(this);
-    (this: any).toggleModal = this.toggleModal.bind(this);
   }
 
-  componentWillReceiveProps(nextProps: Props) {
-    this.setState({
-      isOpen: nextProps.isOpen,
-    });
+  componentWillReceiveProps() {
+    this.setState({ isOpen: false });
   }
 
   onToggleModal(isOpen: boolean, e: Event) {
-    this.toggleModal(isOpen);
+    this.setState({ isOpen });
 
     e.preventDefault();
   }
 
-  toggleModal(isOpen: boolean = !this.state.isOpen) {
-    this.setState({
-      isOpen: isOpen,
-    });
-  }
-
   render() {
-    const { id, iconName, label, modalTitle, children } = this.props;
+    const { id, label, children } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -58,15 +46,14 @@ class ModalTrigger extends Component<Props, State> {
         <button
           id={id}
           className="btn btn--block"
-          onClick={this.onToggleModal.bind(this, true)}
+          onClick={this.onToggleModal.bind(null, true)}
         >
           {label}
         </button>
         <Modal
-          title={modalTitle}
-          iconName={iconName}
+          title=""
           isOpen={isOpen}
-          closeCallback={this.onToggleModal.bind(this, false)}
+          closeCallback={this.onToggleModal.bind(null, false)}
         >
           {children}
         </Modal>

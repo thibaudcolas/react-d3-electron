@@ -1,3 +1,4 @@
+// @flow
 import React, { PureComponent } from "react";
 
 import ModalTrigger from "./ModalTrigger";
@@ -47,12 +48,7 @@ class App extends PureComponent<Props, State> {
     return (
       <div className="App">
         <div>
-          <ModalTrigger
-            id="blue"
-            modalTitle=""
-            label={`Blue: ${datasetOne.label}`}
-            isOpen={false}
-          >
+          <ModalTrigger id="blue" label={`Blue: ${datasetOne.label}`}>
             <h3>
               Comparing <br />
               {datasetTwo.label}
@@ -60,12 +56,7 @@ class App extends PureComponent<Props, State> {
             </h3>
             <Autocomplete name="autocomplete" onUpdate={this.updateOne} />
           </ModalTrigger>
-          <ModalTrigger
-            id="red"
-            modalTitle=""
-            label={`Red: ${datasetTwo.label}`}
-            isOpen={false}
-          >
+          <ModalTrigger id="red" label={`Red: ${datasetTwo.label}`}>
             <h3>
               Comparing <br />
               {datasetOne.label}

@@ -1,17 +1,26 @@
+// @flow
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 import LineChart from "./LineChart";
 
-type Props = {};
+import type { Dataset } from "../datasets";
 
-type State = {};
+type Props = {
+  data: Array<Dataset.data>,
+};
+
+type State = {
+  chart: ?LineChart,
+};
 
 /**
  * React bridge to a D3 chart.
  */
 class ExampleChart extends Component<Props, State> {
-  constructor(props) {
+  chart: ?HTMLDivElement;
+
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -27,7 +36,7 @@ class ExampleChart extends Component<Props, State> {
   }
 
   // Never re-render since we are rendering using D3.
-  shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(nextProps: Props) {
     const { chart } = this.state;
 
     if (chart) {
@@ -41,10 +50,12 @@ class ExampleChart extends Component<Props, State> {
   componentWillUnmount() {
     const { chart } = this.state;
 
-    chart.destroy();
+    if (chart) {
+      chart.destroy();
+    }
   }
 
-  getChartState(props = this.props) {
+  getChartState(props: Props = this.props) {
     return {
       data: props.data,
     };
@@ -53,7 +64,6 @@ class ExampleChart extends Component<Props, State> {
   render() {
     return (
       <div
-        className="chart_container"
         ref={(chart) => {
           this.chart = chart;
         }}
@@ -64,6 +74,14 @@ class ExampleChart extends Component<Props, State> {
   createChart() {
     const { chart } = this.state;
     const el = ReactDOM.findDOMNode(this.chart);
+
+    if (
+      !el ||
+      typeof el.offsetWidth !== "number" ||
+      !(el instanceof "Element")
+    ) {
+      return;
+    }
 
     if (chart) {
       chart.destroy();
@@ -93,10 +111,12 @@ class ExampleChart extends Component<Props, State> {
       () => {
         const { chart } = this.state;
 
-        chart.create(this.getChartState());
-        chart.update(this.getChartState());
+        if (chart) {
+          chart.create();
+          chart.update(this.getChartState());
 
-        chart.preventTransitions();
+          chart.preventTransitions();
+        }
       },
     );
   }

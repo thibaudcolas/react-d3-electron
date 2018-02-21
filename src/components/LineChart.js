@@ -1,88 +1,111 @@
-import d3 from 'd3';
-import Chart from './Chart';
+// @flow
+import d3 from "d3";
+import Chart from "./Chart";
 
-const dates = [new Date('2001'), new Date('2002'), new Date('2003'), new Date('2004'), new Date('2005'), new Date('2006'), new Date('2007'), new Date('2008'), new Date('2009'), new Date('2010'), new Date('2011'), new Date('2012'), new Date('2013'), new Date('2014'), new Date('2015'), new Date('2016')];
+import type { State } from "./Chart";
+
+const dates = [
+  new Date("2001"),
+  new Date("2002"),
+  new Date("2003"),
+  new Date("2004"),
+  new Date("2005"),
+  new Date("2006"),
+  new Date("2007"),
+  new Date("2008"),
+  new Date("2009"),
+  new Date("2010"),
+  new Date("2011"),
+  new Date("2012"),
+  new Date("2013"),
+  new Date("2014"),
+  new Date("2015"),
+  new Date("2016"),
+];
+
+type Scales = {
+  x: Function,
+  y: Function,
+};
 
 export default class LineChart extends Chart {
+  create() {
+    const { height } = this.props;
+    const svg = this.createRoot();
 
-    create() {
-        const { height } = this.props;
-        const svg = this.createRoot();
+    svg
+      .append("g")
+      .attr("class", "x axis")
+      .attr("transform", `translate(0,${height})`);
 
-        // svg.append('g')
-        //     .attr('class', 'grid')
-        //     .attr('transform', 'translate(0,' + height + ')');
+    svg.append("g").attr("class", "y axis");
 
-        svg.append('g')
-            .attr('class', 'x axis')
-            .attr('transform', 'translate(0,' + height + ')');
+    svg.append("g").attr("class", "lines");
+  }
 
-        svg.append('g')
-            .attr('class', 'y axis');
+  getAxis(state: State, scales: Scales) {
+    const x = d3.svg
+      .axis()
+      .scale(scales.x)
+      .orient("bottom")
+      .tickFormat(d3.time.format("%Y"))
+      .outerTickSize(0);
 
-        svg.append('g')
-            .attr('class', 'lines');
-    }
+    const y = d3.svg
+      .axis()
+      .scale(scales.y)
+      .orient("left")
+      .outerTickSize(0);
 
-    getAxis(state, scales) {
-        const x = d3.svg.axis()
-            .scale(scales.x)
-            .orient('bottom')
-            .tickFormat(d3.time.format('%Y'))
-            .outerTickSize(0);
+    return {
+      x: x,
+      y: y,
+    };
+  }
 
-        const y = d3.svg.axis()
-            .scale(scales.y)
-            .orient('left')
-            .outerTickSize(0);
+  update(state: State) {
+    const scales = this.getScales(state);
 
-        return {
-            x: x,
-            y: y,
-        };
-    }
+    this.drawAxis(state, scales);
+    this.drawLines(state, scales);
+  }
 
-    update(state) {
-        const scales = this.getScales(state);
+  drawAxis(state: State, scales: Scales) {
+    const svg = d3.select(this.el);
+    const axis = this.getAxis(state, scales);
 
-        this.drawAxis(state, scales);
-        this.drawLines(state, scales);
-    }
+    svg
+      .select(".axis.x")
+      .transition()
+      .call(axis.x)
+      .selectAll(".tick text")
+      .call(this.wrapText);
 
-    drawAxis(state, scales) {
-        const svg = d3.select(this.el);
-        const axis = this.getAxis(state, scales);
+    svg
+      .select(".axis.y")
+      .transition()
+      .call(axis.y);
+  }
 
-        svg.select('.axis.x')
-            .transition()
-            .call(axis.x)
-        .selectAll('.tick text')
-            .call(this.wrapText);
+  drawLines(state: State, scales: Scales) {
+    const svg = d3.select(this.el);
 
-        svg.select('.axis.y')
-            .transition()
-            .call(axis.y);
-    }
+    const d3Line = d3.svg
+      .line()
+      .x((d, i) => scales.x(dates[i]))
+      .y((d) => scales.y(d));
 
-    drawLines(state, scales) {
-        const svg = d3.select(this.el);
+    const lines = svg.selectAll(".lines");
+    const line = lines.selectAll(".line").data(state.data);
 
-        const d3Line = d3.svg.line()
-            .x((d, i) => scales.x(dates[i]))
-            .y(d => scales.y(d));
+    line
+      .enter()
+      .append("path")
+      .attr("class", "line")
+      .style("stroke-width", 2);
 
-        const lines = svg.selectAll('.lines');
-        const line = lines.selectAll('.line')
-            .data(state.data);
+    line.transition().attr("d", d3Line);
 
-        line.enter().append('path')
-            .attr('class', 'line')
-            .style('stroke-width', 2);
-
-        line.transition()
-            .attr('d', d3Line);
-
-        line.exit()
-            .remove();
-    }
+    line.exit().remove();
+  }
 }

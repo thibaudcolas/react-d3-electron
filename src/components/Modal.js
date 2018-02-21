@@ -8,7 +8,6 @@ ReactModal.setAppElement(document.querySelector("[data-mount]"));
 
 type Props = {
   title: string,
-  iconName: string,
   children: Node,
   isOpen: boolean,
   closeCallback: func,

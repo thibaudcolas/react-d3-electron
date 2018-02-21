@@ -31,6 +31,10 @@ type Props = {
   },
 };
 
+export type State = {
+  data: Array<number>,
+};
+
 /**
  * Abstract class for a D3 chart.
  */
@@ -48,7 +52,7 @@ export default class Chart {
   /**
    * To override. Creates the initial rendering of the chart.
    */
-  create() {}
+  // create() {}
 
   /**
    * Creates the root-level SVG element.
@@ -73,7 +77,7 @@ export default class Chart {
    * Retrieves the scales for our chart.
    * Those are numerical time series scales on full extent of both domains.
    */
-  getScales(state: { data: Array<number> }) {
+  getScales(state: State) {
     const { height, width } = this.props;
 
     const x = d3.time
@@ -96,7 +100,7 @@ export default class Chart {
   /**
    * To override. Populates the initial renderings with content.
    */
-  update() {}
+  // update() {}
 
   /**
    * To use to flush out D3 transitions.

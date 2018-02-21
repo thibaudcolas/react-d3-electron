@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -14,6 +15,10 @@ import "./utils/elements.css";
 import "./components/grid.css";
 import "./components/btn.css";
 
-ReactDOM.render(<App />, document.querySelector("[data-mount]"));
+const mount = document.querySelector("[data-mount]");
+
+if (mount) {
+  ReactDOM.render(<App />, mount);
+}
 
 registerServiceWorker();
