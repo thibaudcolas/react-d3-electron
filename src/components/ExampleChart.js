@@ -75,11 +75,7 @@ class ExampleChart extends Component<Props, State> {
     const { chart } = this.state;
     const el = ReactDOM.findDOMNode(this.chart);
 
-    if (
-      !el ||
-      typeof el.offsetWidth !== "number" ||
-      !(el instanceof "Element")
-    ) {
+    if (!el || typeof el.offsetWidth !== "number" || !(el instanceof Element)) {
       return;
     }
 
