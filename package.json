@@ -1,6 +1,6 @@
 {
   "name": "react-d3-electron",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "license": "MIT",
   "repository": {
@@ -10,7 +10,9 @@
   "bugs": {
     "url": "https://github.com/thibaudcolas/react-d3-electron/issues"
   },
-  "homepage": "https://thibaudcolas.github.io/react-d3-electron/",
+  "homepage": ".",
+  "productName": "Search",
+  "main": "./build/app.js",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -26,25 +28,25 @@
     "proseWrap": "preserve"
   },
   "devDependencies": {
+    "d3": "^3.5.0",
     "electron": "^1.8.2",
     "electron-debug": "^1.5.0",
     "electron-packager": "^11.0.1",
     "flow-bin": "^0.66.0",
-    "prettier": "^1.10.2",
-    "react-scripts": "1.1.1",
-    "source-map-explorer": "^1.5.0"
-  },
-  "dependencies": {
-    "d3": "^3.5.0",
     "lunr": "^0.6.0",
     "normalize.css": "^8.0.0",
+    "prettier": "^1.10.2",
     "react": "^16.2.0",
     "react-autosuggest": "^9.3.4",
     "react-dom": "^16.2.0",
-    "react-modal": "^3.2.1"
+    "react-modal": "^3.2.1",
+    "react-scripts": "1.1.1",
+    "source-map-explorer": "^1.5.0"
   },
+  "dependencies": {},
   "scripts": {
     "start": "react-scripts start",
+    "start:electron": "yarn run dist && electron build/app.js",
     "build":
       "react-scripts build && source-map-explorer --html build/static/js/main.* > public/source-map-explorer.html",
     "test": "yarn run test:coverage",
@@ -54,6 +56,8 @@
     "linter:md": "prettier --list-different",
     "linter:json": "prettier --list-different",
     "dist": "CI=true yarn run build",
+    "dist:electron":
+      "yarn run dist && electron-packager . --ignore='(dist|node_modules|src|public|raw|.githooks)/' --out=dist --asar --all --icon ./build/favicon.icns --overwrite",
     "flow": "flow",
     "report:coverage": "open coverage/lcov-report/index.html",
     "report:build": "open public/source-map-explorer.html",

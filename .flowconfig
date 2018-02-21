@@ -1,6 +1,8 @@
 [ignore]
 suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 .*/node_modules/config-chain
+.*/node_modules/electron-packager
+.*/node_modules/lunr
 
 [include]
 
