@@ -14,9 +14,6 @@
   animation: modal-in 0.15s ease-out 0s backwards;
 }
 
-// To close the modal, apply the modal--exit class and wait for the
-// animationEnd event to fire
-
 .modal--exit {
   animation: modal-out 0.4s ease-out 0.4s forwards;
 }

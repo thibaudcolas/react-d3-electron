@@ -8,10 +8,10 @@ import registerServiceWorker from "./registerServiceWorker";
 
 import "normalize.css";
 
-import "./index.css";
 import "./utils/animations.css";
 import "./utils/widths.css";
 import "./utils/elements.css";
+import "./index.css";
 import "./components/grid.css";
 import "./components/btn.css";
 
