@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/Autocomplete.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> Autocomplete.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/37</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// @flow<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+import React,<span class="cstat-no" title="statement not covered" > { Component } fr</span>om "react";<span class="cstat-no" title="statement not covered" ></span>
+import Autosuggest from <span class="cstat-no" title="statement not covered" >"react-autosuggest";<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+import TextHighlight <span class="cstat-no" title="statement not covered" >from "./TextHighlight";<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+import datasets,<span class="cstat-no" title="statement not covered" > { data, related, idx }</span> from "../dataset<span class="cstat-no" title="statement not covered" >s";</span>
+import type Dataset from "../datasets";
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import "./Autocomplete.css";<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+&nbsp;
+type Props = {
+  name: string,
+  onUpdate: Function,
+};
+&nbsp;
+type State = {
+  suggestions: Array&lt;{
+    title: string,
+    suggestions: Array&lt;Dataset&gt;,
+  }&gt;,
+  value: string,
+};
+&nbsp;
+class Autocomplete extends Component&lt;Props, State&gt; {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor(props: Props) {
+<span class="cstat-no" title="statement not covered" >    super(props);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.state = {</span>
+      suggestions: [
+        {
+          title: "Related datasets",
+          suggestions: related,
+        },
+        {
+          title: "All datasets",
+          suggestions: data,
+        },
+      ],
+      value: "",
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    (this: any).getSuggestionValue = this.getSuggestionValue.bind(</span>this);
+<span class="cstat-no" title="statement not covered" >    (this: any).handleChange = this.handleChange.bind(</span>this);
+<span class="cstat-no" title="statement not covered" >    (this: any).onFetchRequested = this.onFetchRequested.bind(</span>this);
+<span class="cstat-no" title="statement not covered" >    (this: any).onSelected = this.onSelected.bind(</span>this);
+<span class="cstat-no" title="statement not covered" >    (this: any).renderSuggestion = this.renderSuggestion.bind(</span>this);
+<span class="cstat-no" title="statement not covered" >    (this: any).renderSectionTitle = this.renderSectionTitle.bind(</span>this);
+<span class="cstat-no" title="statement not covered" >    (this: any).getSectionSuggestions = this.getSectionSuggestions.bind(</span>this);
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  co</span>mponentDidMount() {
+    const autocomplete = <span class="cstat-no" title="statement not covered" >document.querySelector('#autocomplete[type="text"]');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (autocomplete) {</span>
+<span class="cstat-no" title="statement not covered" >      setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        autocomplete.focus();</span>
+      }, 100);
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ge</span>tSuggestionValue(suggestion: Dataset) {
+<span class="cstat-no" title="statement not covered" >    return suggestion.label;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ha</span>ndleChange(e: Event, change: { reason: string, newValue: string }) {
+<span class="cstat-no" title="statement not covered" >    if (["enter", "click"].indexOf(change.reason) === -1) {</span>
+      const value = <span class="cstat-no" title="statement not covered" >change.newValue;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.setState({</span>
+        value: value,
+      });
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  on</span>FetchRequested(update: { reason: string, value: string }) {
+<span class="cstat-no" title="statement not covered" >    if (["enter", "click"].indexOf(update.reason) === -1) {</span>
+      const results = <span class="cstat-no" title="statement not covered" >idx.search(update.value);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.setState({</span>
+        suggestions: [
+          {
+            title: "Related datasets",
+            suggestions:
+              results.length === 0
+                ? related
+                : related.filter((d<span class="fstat-no" title="function not covered" >at</span>) =&gt;
+<span class="cstat-no" title="statement not covered" >                    res<span class="fstat-no" title="function not covered" >ul</span>ts.so<span class="cstat-no" title="statement not covered" >me((res) =&gt; res.ref</span> </span>=== dat.id),
+                  ),
+          },
+          {
+            title: "All datasets",
+            suggestions:
+              results.length === 0
+                ? data
+                : resu<span class="fstat-no" title="function not covered" >lt</span>s.map((r<span class="cstat-no" title="statement not covered" >esult) =&gt; datasets[result.ref])</span>,
+          },
+        ],
+      });
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  on</span>Selected(
+    e: Event,
+    selection: {
+      suggestion: Dataset,
+    },
+  ) {
+    const { onU<span class="cstat-no" title="statement not covered" >pdate } = this.props</span>;
+<span class="cstat-no" title="statement not covered" >    onUpdate(selection.suggestion);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  re</span>nderSuggestion(
+    suggestion: Dataset,
+    {
+      query,
+    }: {
+      query: string,
+    },
+  ) {
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;p&gt;
+        {query !== suggestion.label ? (
+          &lt;TextHighlight highlight={query} text={suggestion.label} /&gt;
+        ) : (
+          &lt;span&gt;{suggestion.label}&lt;/span&gt;
+        )}
+      &lt;/p&gt;
+    );
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  re</span>nderSectionTitle(section: { title: string, suggestions: Array&lt;Dataset&gt; }) {
+<span class="cstat-no" title="statement not covered" >    return &lt;strong&gt;{section.title}&lt;/strong&gt;;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ge</span>tSectionSuggestions(section: {
+    title: string,
+    suggestions: Array&lt;Dataset&gt;,
+  }) {
+<span class="cstat-no" title="statement not covered" >    return section.suggestions;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  re</span>nder() {
+    const {<span class="cstat-no" title="statement not covered" > name } = this.p</span>rops;
+<span class="cstat-no" title="statement not covered" >    const { sug</span>gestions, value } = <span class="cstat-no" title="statement not covered" >this.state;<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;Autosuggest
+        suggestions={suggestions}
+        onSuggestionsFetchRequested={this.onFetchRequested}
+        getSuggestionValue={this.getSuggestionValue}
+        renderSuggestion={this.renderSuggestion}
+        onSuggestionSelected={this.onSelected}
+        alwaysRenderSuggestions={true}
+        focusInputOnSuggestionClick={false}
+        renderSectionTitle={this.renderSectionTitle}
+        getSectionSuggestions={this.getSectionSuggestions}
+        multiSection={true}
+        inputProps={{
+          name: name,
+          className: "react-autosuggest__input",
+          onChange: this.handleChange,
+          value: value,
+        }}
+      /&gt;
+    );
+  }<span class="cstat-no" title="statement not covered" ></span>
+}
+&nbsp;
+export default Autocomplete;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 21 2018 16:06:21 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
