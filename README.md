@@ -1,4 +1,4 @@
-# [react-d3-electron](https://thibaudcolas.github.io/react-d3-electron/) [![Build Status](https://img.shields.io/travis/thibaudcolas/react-d3-electron.svg)](https://travis-ci.org/thibaudcolas/react-d3-electron)
+# [react-d3-electron](https://thibaudcolas.github.io/react-d3-electron/)
 
 > :chart_with_downwards_trend::chart_with_upwards_trend: An example of using React with D3, Lunr.js and an autocomplete UI to build an accessible keyboard-centric search experience. Also – service workers for offline caching, and desktop app with Electron. [Demo](https://thibaudcolas.github.io/react-d3-electron/)
 
